@@ -9,7 +9,9 @@ import {
 import { CounterContainer } from "./Counter";
 
 jest.mock("./fetchCount", () => ({
-  fetchCount: () => Promise.resolve(44),
+  fetchCount: () => new Promise(resolve =>
+    setTimeout(() => resolve(44), 1000)
+  ),
 }));
 
 describe("CounterContainer", () => {
