@@ -1,16 +1,6 @@
 import React from "react";
 import "../styles.css";
 
-function useCounter() {
-  const [count, setCount] = React.useState(0);
-
-  React.useEffect(() => {
-    setCount(30);
-  }, []);
-
-  return [count, setCount];
-}
-
 function Counter() {
   const [count, setCount] = useCounter();
 
@@ -19,6 +9,16 @@ function Counter() {
       {count}
     </button>
   );
+}
+
+function useCounter() {
+  const [count, setCount] = React.useState(0);
+
+  React.useEffect(() => {
+    setCount(30);
+  }, []);
+
+  return [count, setCount];
 }
 
 export { Counter };

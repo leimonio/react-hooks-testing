@@ -27,22 +27,18 @@ describe("CounterContainer", () => {
     expect(buttons[1].textContent).toEqual("44");
   });
 
-  it("should increase count by clicking on any button", async () => {
+  it("should increase count by 1 when clicking on any button", async () => {
     const { getByText, getAllByRole } = render(<CounterContainer />);
 
     await waitForElementToBeRemoved(() => getByText(/is loading/i));
 
-    act(() => {
-      fireEvent.click(getAllByRole("button")[0]);
-    });
+    fireEvent.click(getAllByRole("button")[0]);
 
     let buttons = getAllByRole("button");
     expect(buttons[0].textContent).toEqual("45");
     expect(buttons[1].textContent).toEqual("45");
 
-    act(() => {
-      fireEvent.click(getAllByRole("button")[1]);
-    });
+    fireEvent.click(getAllByRole("button")[1]);
 
     buttons = getAllByRole("button");
     expect(buttons[0].textContent).toEqual("46");

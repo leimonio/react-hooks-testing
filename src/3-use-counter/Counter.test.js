@@ -8,6 +8,7 @@ describe("Counter", () => {
     const { getByRole } = render(<Counter />);
     expect(getByRole("button").textContent).toEqual("30");
   });
+  
   it("should increase count by 1", () => {
     const { getByRole } = render(<Counter />);
     fireEvent.click(getByRole("button"));

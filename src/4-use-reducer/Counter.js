@@ -1,6 +1,16 @@
 import React from "react";
 import "../styles.css";
 
+function Counter() {
+  const [state, dispatch] = React.useReducer(reducer, { count: 30 });
+
+  return (
+    <button className="button" onClick={() => dispatch({ type: "increment" })}>
+      {state.count}
+    </button>
+  );
+}
+
 function reducer(state, action) {
   switch (action.type) {
     case "increment":
@@ -10,16 +20,6 @@ function reducer(state, action) {
     default:
       throw new Error();
   }
-}
-
-function Counter() {
-  const [state, dispatch] = React.useReducer(reducer, { count: 30 });
-
-  return (
-    <button className="button" onClick={() => dispatch({ type: "increment" })}>
-      {state.count}
-    </button>
-  );
 }
 
 export { Counter };

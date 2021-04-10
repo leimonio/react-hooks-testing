@@ -1,7 +1,7 @@
 import { render, fireEvent } from "@testing-library/react";
 import { Counter } from "./Counter";
 
-test("button click increases the coubt by 1", () => {
+it("button click increases the coubt by 1", () => {
   const { getByRole } = render(<Counter />);
   expect(getByRole("button").textContent).toEqual("30");
   fireEvent.click(getByRole("button"));
